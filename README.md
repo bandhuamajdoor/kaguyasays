@@ -4,6 +4,8 @@ A fun terminal companion that prints quotes inside a styled text box and shows a
 
 It's perfect for greeting you every time you open a new terminal\!
 
+![demo image](/README%20images/demo.png)
+
 -----
 
 ## 📦 Installation
