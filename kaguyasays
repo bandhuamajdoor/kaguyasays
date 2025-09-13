@@ -52,4 +52,4 @@ done
 echo "${indent}└$border┘"
 
 # Show image
-chafa --view-size=20x30 ~/Pictures/kagu.png
+chafa --view-size=20x30 ~/.config/kaguyasays/kagu.png
