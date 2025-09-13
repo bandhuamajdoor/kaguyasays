@@ -1,0 +1,55 @@
+#!/bin/bash
+
+# Path to quotes file
+quotes_file="$HOME/.config/kaguyasays/quotes.txt"
+
+# Read input (argument, stdin, or fallback to random quote)
+if [ -t 0 ]; then
+  if [ $# -gt 0 ]; then
+    text="$*"
+  else
+    # Pick one random multi-line block (%% separated), trim leading/trailing blank lines
+    text=$(awk -v RS='%%' 'NF {quotes[++n]=$0} 
+         END {srand(); q=quotes[int(rand()*n)+1]; 
+              gsub(/^[\r\n]+|[\r\n]+$/, "", q); 
+              print q}' "$quotes_file")
+  fi
+else
+  text=$(cat)
+fi
+
+# Detect terminal width
+term_width=$(tput cols)
+max_width=$((term_width - 20))
+
+# Wrap long lines (subtract 4 for margins)
+wrapped=$(echo "$text" | fold -s -w $((max_width - 4)))
+
+# Split into lines
+mapfile -t lines <<<"$wrapped"
+
+# Find longest line
+maxlen=0
+for line in "${lines[@]}"; do
+  [ ${#line} -gt $maxlen ] && maxlen=${#line}
+done
+
+# Adjust for margins
+box_width=$((maxlen + 4))
+
+# Build top border
+indent="                " # adjust alignment
+border=$(printf '─%.0s' $(seq 1 $box_width))
+echo "${indent}┌$border┐"
+
+# Print each line with padding + margins
+for line in "${lines[@]}"; do
+  padding=$((maxlen - ${#line}))
+  printf "%s│  %s%*s  │\n" "$indent" "$line" $padding ""
+done
+
+# Bottom border
+echo "${indent}└$border┘"
+
+# Show image
+chafa --view-size=20x30 ~/Pictures/kagu.png
