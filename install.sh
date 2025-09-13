@@ -17,12 +17,46 @@ mkdir -p "$CONFIG_DIR"
 # Install quotes.txt if missing
 if [ ! -f "$CONFIG_DIR/quotes.txt" ]; then
   cat >"$CONFIG_DIR/quotes.txt" <<'EOF'
-Hello, this is a sample quote.
+Aaj kamayenga toh kal baith kar khayenga
+apni mehnat par bharosa rakh, pyaar toh dubara bhi hojayenga
+
+AAAAAAA MERIII JAAAANNNN
 %%
-Multi-line
-quotes
-work
-too!
+Pyaar vyaar sb dhoka h,
+padhle beta mauka h.
+%%
+Tu toh Google bhi khol ke bakwaas hi search karega.
+%%
+Tere jaise ko dekh ke lagta hai WiFi password bhi 'chotu123' hoga.
+%%
+duckkk me fadddyyy.
+%%
+Iss janam mai main hi milungi.
+SINGLE LAVDA :_(
+%%
+I got in a lot of trouble on a date recently, because I didn't open the car door for her.
+Instead, I just swam to the surface :)
+%%
+gaand fatte toh fatte
+par nawabi na ghate
+%%
+bangya shana terminal kholke?
+%%
+The dildo of consequences rarely arrives lubed </3
+%%
+elvissh bhai ke aage koi BOL SKTAA HAI KYAA?!!
+%%
+Padhai likhai ek dhoka h,
+latak jao beta yehi mauka h.
+%%
+"Kissing homies goodnight isn't gay"
+                              -sun tzu
+%%
+Koi aapse pyaar kyu karega? :_(
+%%
+Mai bhi changa, mera pio bhi changa,
+meri maa bhi changi
+RISHTEDAAR BEHENCHOD
 EOF
   echo "Created $CONFIG_DIR/quotes.txt"
 else
