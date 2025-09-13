@@ -1,4 +1,4 @@
-# 👅 kaguyasays
+![title of project](/README%20images/title.png)
 
 A fun terminal companion that prints quotes inside a styled text box and shows a divine Kaguya-sama image below. 💖
 
